@@ -297,7 +297,7 @@ La asociación de estas imágenes con la instalación y lanzamiento de la aplica
 	C:\Users\[usuario]\Desktop> cordova create reloj_calendario com.example.reloj Reloj
 	```
 
-* **Agregar** la **plataforma** elegida a nuestro proyecto. Los recursos que presenta este proyecto están orientados y optimizados para **Android** y su funcionamiento se ha probado sólo en dispositivos con esta plataforma. Nos desplazamos hasta el directorio "**reloj_calendario**" y añadimos la plataforma, **Android** con el comando:
+* **Agregar** la **plataforma** elegida. Los recursos que presenta este proyecto están orientados y optimizados para **Android** y su funcionamiento se ha probado sólo en dispositivos con esta plataforma. Nos desplazamos hasta el directorio "**reloj_calendario**" y añadimos la plataforma, **Android** con el comando:
 	
 	**cordova platform add** [plataforma]
 	
@@ -306,7 +306,7 @@ La asociación de estas imágenes con la instalación y lanzamiento de la aplica
 	```
 	**PARCHE CORDOVA**, para recoger el evento  "**menubutton**". En las últimas versiones de **Cordova CLI** se ha omitido la programación relacionada con la escucha de este evento (considerado obsoleto).
 	
-	Personalmente soy partidario de conservar esta cualidad, para los dispositivos que áun presentan el "botón menú". Si queres añadir el *parche* (una vez agregada la plataforma y como paso previo a la compilación), sigue la propuesta de 'Sven Casimir' - 06/Nov/15 11:03, en:
+	Personalmente soy partidario de conservar esta cualidad para los dispositivos que áun presentan el "botón menú". Si queres añadir el *parche* (una vez agregada la plataforma y como paso previo a la compilación), sigue la propuesta de 'Sven Casimir', en:
 
 	[https://issues.apache.org/jira/browse/CB-8921](https://issues.apache.org/jira/browse/CB-8921 "issues.apache.org")
 
@@ -314,11 +314,11 @@ La asociación de estas imágenes con la instalación y lanzamiento de la aplica
 	
 	Donde dice:
 	
-	"*Finally in CordovaLib/src/org/apache/cordova/CoreAndroid.java line 357 (setButtonPlumbedToJs) add a case statement after the KEYCODE_MENU entry like this:*"
+	"*Finally in CordovaLib/src/org/apache/cordova/**CoreAndroid.java** line 357 (setButtonPlumbedToJs) add a case statement after the KEYCODE_MENU entry like this:*"
 
 	Debe decir:
 
-	"*Finally in CordovaLib/src/org/apache/cordova/CordovaWebImpl.java line 357 (setButtonPlumbedToJs) add a case statement after the KEYCODE_MENU entry like this:*"	
+	"*Finally in CordovaLib/src/org/apache/cordova/**CordovaWebImpl.java** line 357 (setButtonPlumbedToJs) add a case statement after the KEYCODE_MENU entry like this:*"	
 	
 	**Nota:* Este *parche* se ha añadido a las versiones 1.0.x de la aplicación.
 
@@ -338,16 +338,14 @@ La asociación de estas imágenes con la instalación y lanzamiento de la aplica
 
 		Abre también, **config.xml** de "**reloj_calendario**" y **pega** la copia obtenida entre las citadas etiquetas. 
 		
-		En tu proyecto "**reloj_calendario**", entra en el directorio raíz,  **www/** y abre **en el navegador** el archivo **index.html**. Si todo ha ido bien, aparecerá un bonito **reloj** (pulsa sobre él para acceder al menú de opciones). Disponemos ya de la posibilidad de **depurar** el código HTML, CSS y Javascript de nuestra futura aplicación.
+		En tu proyecto "**reloj_calendario**". Entra en el directorio raíz,  **www/** y abre **en el navegador** el archivo **index.html**. Si todo ha ido bien, aparecerá un bonito **reloj** (pulsa sobre él para acceder al menú de opciones). Disponemos ya de la posibilidad de **depurar** el código HTML, CSS y Javascript de nuestra futura aplicación.
 		
-		**Nota:** Si en lugar de **crear** tu propio proyecto, quieres ahorrarte trabajo y compilar directamente el obtenido desde **Github**		
+		**Nota:** Si en lugar de **crear** tu propio proyecto, quieres ahorrarte trabajo y **compilar directamente** el obtenido desde Github, **elimina** los archivos (orientativos) **README.md** que se encuentran en los directorios **platforms** y **plugins**, después añade la **plataforma** preferida ,los **plugins** (complementos) recomendados y efectúa la orden:		
 		
 		```
 		C:\Users\[usuario]\Desktop\Reloj-Cordova-Ejemplo-master> cordova build
 		```
 	
-		**No olvides eliminar antes**, los archivos (orientativos) **README.md** que se encuentran en los directorios **platforms** y **plugins**.
-
 * **Añadir complementos**. Para que nuestro proyecto tenga la misma funcionalidad que busca el original, conviene añadir los siguientes **plugins**, con el comando :
 
 	**cordova plugin add** [plugin].   		
@@ -456,7 +454,7 @@ La asociación de estas imágenes con la instalación y lanzamiento de la aplica
 	```
 * **Firmar** nuestra aplicación. **Android** requiere que todas sus aplicaciones incorporen una clave privada o firma electrónica. Hay por lo menos dos métodos para esta práctica el siguiente, que creo más sencillo, consiste en:
 		
-	* Creamos el **almacén de claves** con la herramienta Java :  "**keytool**" (procura que entre las **variables de entorno** del equipo, la variable de sistema **Path** contenga la **ruta** hasta el directorio de **binarios** del Java JDK. En **Windows**, esta variable tendrá aproximadamente, esta apariencia : `C:\ ...;C:\Program Files\Java\jdk1.7.0_79\bin`), con el comando,
+	* Creamos el **almacén de claves** con la herramienta Java :  "**keytool**" (procura que entre las **variables de entorno** del equipo, la variable de sistema **Path** contenga la **ruta** hasta el directorio de **binarios** del Java JDK. En **Windows**, esta parte de la variable tendrá aproximadamente, esta apariencia : `C:\ ...;C:\Program Files\Java\jdk1.7.0_79\bin`), con el comando,
 
 	**keytool -genkey -v -keystore *ejemplo*.keystore -alias *ejemplo* -keyalg RSA -keysize 2048 -validity 10000**.
 
@@ -499,9 +497,9 @@ Saludos.
   	
 -----------	
 
-> 2016 - Foog.Software
->
-> [www.foog.es](http://www.foog.es/)
+ 2016 - Foog.Software
+
+[www.foog.es](http://www.foog.es/)
 
 
 
