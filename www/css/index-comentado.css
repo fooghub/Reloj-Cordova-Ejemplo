@@ -1,0 +1,434 @@
+/* Aplicación: Reloj - Hoja de estilos (CSS) | Archivo: index.css | Autor: Francisco J. Gómez. | 2004, 2015 Foog.Software. |  Licencia : MIT License (MIT). */
+/* Dependencias: jQueryMobile 1.4.5 (CSS) https://jquerymobile.com/ | Giorgio.ttf - Giorgio by MuraKnockout Media & Design  http://www.1001freefonts.com/designer-muraknockout-media---design-fontlisting.php */
+* {
+	-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+@font-face {
+	font-family: "Giorgio";
+	src: url("font/Giorgio.ttf");
+}
+
+html, body{
+	-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+	-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+	-webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+	background-color:#202020;
+	background-attachment:fixed;
+	height:100%;
+	margin:0px;
+	padding:0px;
+	width:100%;
+}
+
+#index{
+	overflow: hidden;
+}
+
+#index-capa-central{
+	/* Las propiedades: position (absolute), width y height, se establecen en tiempo de ejecución. */
+	margin:0px;
+	padding:0px;
+	font-family: Giorgio;
+	text-align:center;	
+}
+
+#reloj{
+	/* Las propiedades: width y height, se establecen en tiempo de ejecución. */
+	position:relative;
+	left:0px;
+	top:0px;
+	margin:0px;
+	padding:0px;
+	text-align:center;	
+}
+
+#imagen-reloj{
+	/* Las propiedades: top, left, width y height, se restablecen en tiempo de ejecución.  */
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:auto;
+	height:auto;
+	margin:0px;
+	padding:0px;
+	text-align:center;
+	z-index: 99998;
+}
+
+/*Panel (menú):*/
+
+#opciones-cerrar{
+	position:absolute;
+	top:0; left: 0;
+	width: 100%;
+	height: 44px; 
+	padding-left:6px;	 
+	z-index:2; 
+}
+
+#opciones-pulsador-cerrar, #opciones-pulsador-salir{
+	background:inherit;
+	border: none;
+}
+
+#opciones-envoltura {
+	position:absolute;
+	top:52px;
+	left:0;
+	bottom:54px; 
+	width:100%;
+	overflow:auto;
+	z-index:1;
+}
+
+#opciones-varios {
+	position:absolute;
+	width:100%;
+	padding-left:6px;
+	z-index:1;
+}
+
+#opciones-salir{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width:100%;
+	height:46px;
+	padding-left:6px;
+	padding-bottom:2px;
+}
+
+.ui-panel-inner { 
+	padding: 0 !important;
+}
+
+.ui-panel-dismiss-open {
+	left: 13em !important;
+} 
+
+.opciones-varios-abajo{
+	bottom: 0;
+}
+
+/* Página 'ajustes' (desplegables) : */
+
+#ajustes-autor, #ajustes-web, #ajustes-copyright{
+	text-align: center;
+	margin: 0.2em;
+}
+
+#ajustes-copyright{
+	margin-bottom:2em;
+}
+
+#ajustes-github, #ajustes-licencia{
+	text-align: center;
+	margin: 1em;
+}
+
+#ajustes-programa-paquete, #ajustes-programa-versiones-guarismo, #ajustes-dispositivo-plataforma, #ajustes-programa-serie{
+	font-size : x-small;
+}
+
+#ajustes-sonido-advertencia{
+	margin-left:14px;
+}
+
+#ajustes-actualizaciones{
+	text-align: center;
+}
+
+#ajustes-actualizaciones-tarea{
+	font-size: small;
+	padding-left: 0.6em;
+}
+
+#ajustes-actualizaciones-porcentaje{
+	margin:0;
+	padding-left: 0.6em;
+	font-size: x-small;
+	visibility : hidden;	
+}
+
+#ajustes-actualizaciones-porcentaje-cifra{
+	display:inline-block;  
+	min-width : 20px;
+	text-align: right;
+}
+
+#ajustes-actualizaciones-noticia{
+	font-size:small;
+	margin: 0.6em;
+	padding: 0.6em;
+}
+
+#ajustes-actualizaciones-noticia1{
+	font-size:small;
+	margin:0px 0px 0px 0.6em; 	
+	padding: 0px 0px 0.6em 0.6em;
+}
+
+#ajustes-actualizaciones-error{
+	font-size:x-small;
+	margin: 0.6em;
+	padding: 0.8em;	
+	color : #FFCC00;
+	background :inherit;
+}
+
+#ajustes-actualizaciones-botones{
+	margin-bottom : 0.6em;	
+}
+
+#ajustes.ui-disabled {
+	opacity:1 !important;
+}
+
+.ajustes-tema-imagen{
+	float:right;
+	width:24px;
+	height:24px;
+}
+
+.leyenda{
+	text-align:center;
+	margin-bottom:14px;
+}
+
+input.ui-slider-input {
+	display : none !important;
+}
+
+.ui-slider-track {
+	height: 4px !important;
+}
+
+/* Popup */
+#salida-cabecera{
+	padding: 10px;	
+	border-bottom:2px solid #33B5E5;	
+}
+
+#salida-cabecera-texto{
+	text-align:left;
+	color:#33ACD9;
+}
+
+#salida-imagen, #bienvenida-imagen{
+	width:34px;
+	height:34px;
+	vertical-align:middle;
+	padding-right:0.6em;
+	cursor: pointer;
+}
+
+#captura-de-pantalla-cabecera{
+	padding-top: 6px;
+	padding-bottom : 6px;	
+}
+
+#captura-de-pantalla-texto{
+	font-size: 1em;
+	padding: 0;
+	text-align: center;
+}
+
+@media only screen 
+and (min-device-width: 361px) 
+and (max-device-width: 642px){
+	#captura-de-pantalla-texto {
+		font-size: x-small;
+		text-align: left;
+		padding-left: 18%;
+	}  
+}
+
+#bienvenida-contenido{
+	border-top: 1px inset #282828;
+}
+
+.borde-inf-azul-android{
+	border-bottom:2px solid #33B5E5;
+}
+
+.fuente-talla-08{
+	font-size:0.8em;
+}
+/* Clases generales.Tamaño fuente letra */
+.fuente-talla-s{
+	font-size:small;
+}
+.fuente-talla-x-s{
+	font-size:x-small;
+}
+.fuente-talla-xx-s{
+	font-size:xx-small;
+}
+.margen-inferior-1{
+	margin-bottom:1em;
+}
+/*Licencia y créditos: */
+.margen-inferior-2{
+	margin-bottom:2em;
+}
+
+/*Tablas: */
+.separador{
+	width: 100%;
+	height:1px;
+	border: none;
+	background-color: #202020;
+	color:#282828;
+}
+
+/*Iconos personalizados: */
+
+.ui-icon-github-b:after {
+	background-image: url("images/GitHub-Mark-Light-32px.png");
+	background-size: 18px 18px;
+}
+
+.ui-icon-iconoReloj:after {
+	background-image: url("images/reloj36.png");
+	background-size: 18px 18px;
+}
+
+.solo-icono{
+	position: relative;
+	display:block;
+}
+
+/* Foco personalizado: */
+
+.no-halo-azul{
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+
+.ui-focus {
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+
+.font-giorgio{
+	font-family: Giorgio;
+}
+
+.centrado{
+	text-align: center;
+}
+
+/* Calendario : */
+
+#calendario-lienzo{
+	max-width: 600px;
+	padding:2px;
+	margin: auto;
+	background: #2e2e2e;
+	font-size: small;
+}
+
+@media screen and (max-width: 600px) {
+	#calendario-lienzo {
+		font-size: x-small;
+	}
+}
+
+#calendario-cabecera-anualidad, #calendario-cabecera-mensualidad, #calendario-pie{
+	background: #171717;
+}
+
+#calendario-cabecera-anualidad .ui-block-a {
+	width: 20% !important;
+	min-width: 40px;
+}
+
+#calendario-cabecera-anualidad .ui-block-b {
+	width: 60% !important;
+}
+
+#calendario-cabecera-anualidad .ui-block-c {
+	width: 20% !important;
+	min-width: 40px;
+}
+
+#calendario-cabecera-mensualidad .ui-block-a {
+	width: 20% !important;
+	min-width: 40px;
+}
+
+#calendario-cabecera-mensualidad .ui-block-b {
+	width: 60% !important;
+}
+
+#calendario-cabecera-mensualidad .ui-block-c {
+	width: 20% !important;
+	min-width: 40px;
+}
+
+#calendario-mensualidad-avanzar, #calendario-seleccionar, #calendario-anualidad-avanzar{
+	float:right;
+}
+
+#calendario-mensualidad, #calendario-anualidad{
+	text-align: center;
+}
+
+
+.calendario-semana{
+	background-color: #171717;
+	color:inherit;	
+}
+
+.domingo, .fiesta {
+	color:#FF0000;	
+}
+
+.fiestaEnDomingo {
+	text-decoration: underline; 
+}
+
+.fiestaAlternativa{
+	color: #00FF00;
+}
+
+.seleccionado{
+	border: 1px solid #B8B8B8;
+	padding: 3px;
+	background: #909090;;
+	background-clip: content-box;
+}
+
+/* Cuadrícula con seis o siete columnas | http://stackoverflow.com/questions/14461095/how-to-create-more-than-five-colomn-grid-in-jquery-mobile */
+
+/* ADD 6(e) and 7(f) column grid */
+.ui-grid-e, .ui-grid-f { overflow: hidden; }
+
+/* grid e: 16/16/16/16/16/16 */
+.ui-grid-e .ui-block-a, .ui-grid-e .ui-block-b, .ui-grid-e .ui-block-c, .ui-grid-e .ui-block-d, .ui-grid-e .ui-block-e, .ui-grid-e .ui-block-f { width: 16.59166666666667%; }
+.ui-grid-e > :nth-child(n) { width: 16.66666666666667%; }
+.ui-grid-e .ui-block-a { clear: left; }
+
+/* grid f: 14/14/14/14/14 */
+.ui-grid-f .ui-block-a, .ui-grid-f .ui-block-b, .ui-grid-f .ui-block-c, .ui-grid-f .ui-block-d, .ui-grid-f .ui-block-e, .ui-grid-f .ui-block-f, .ui-grid-f .ui-block-g { width: 14.21071428571429%; }
+.ui-grid-f > :nth-child(n) { width: 14.28571428571429%; }
+.ui-grid-f .ui-block-a { clear: left; }
+
+/* ADD 6th (f) and 7th (g) blocks in grid */
+.ui-header .ui-navbar .ui-grid-e li.ui-block-f .ui-btn,
+.ui-footer .ui-navbar .ui-grid-e li.ui-block-f .ui-btn { margin-right: -3px; }/* NOT TESTED */
+
+.ui-header .ui-navbar .ui-grid-f li.ui-block-g .ui-btn,
+.ui-footer .ui-navbar .ui-grid-f li.ui-block-g .ui-btn { margin-right: -2px; }/* NOT TESTED */
+
+.ui-grid-e .ui-btn, .ui-grid-f .ui-btn { margin-right: 5px; margin-left: 5px; }
+
+.ui-block-f, .ui-block-g { margin: 0; padding: 0; border: 0; float: left; min-height: 1px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; }
+
+.ui-header .ui-navbar .ui-grid-e li.ui-block-f .ui-btn-icon-right .ui-icon,
+.ui-footer .ui-navbar .ui-grid-f li.ui-block-g .ui-btn-icon-right .ui-icon { right: 8px; }

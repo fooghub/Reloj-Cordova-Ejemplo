@@ -1,0 +1,82 @@
+<div data-role="page" id="calendario" data-theme="b">
+	<div data-role="header" data-position="fixed"><a href="../index.html" data-icon="iconoReloj" data-iconpos="notext" id="calendario-regresar"></a><h2>Calendario</h2></div>
+	<div data-role="content">	
+		<div id="calendario-lienzo" class="ui-corner-all ui-overlay-shadow">
+			<div class="ui-grid-b" id="calendario-cabecera-anualidad">
+				<div class="ui-block-a"><a href="#" id="calendario-anualidad-retroceder" data-role="button" data-iconpos="notext" data-icon="carat-l" onclick="programa.fecha.calendario.buscar('anualidadAnterior');"></a></div>
+				<div class="ui-block-b"><h4 id="calendario-anualidad">&#160;</h4></div>
+				<div class="ui-block-c"><a href="#" id="calendario-anualidad-avanzar" data-role="button" data-iconpos="notext" data-icon="carat-r" onclick="programa.fecha.calendario.buscar('anualidadSiguiente');"></a></div>
+			</div>	
+			<div class="ui-grid-b" id="calendario-cabecera-mensualidad">
+				<div class="ui-block-a"><a href="#" data-role="button" data-iconpos="notext" data-icon="carat-l" onclick="programa.fecha.calendario.buscar('mesAnterior');"></a></div>
+				<div class="ui-block-b"><h5 id="calendario-mensualidad">&#160;</h5></div>
+				<div class="ui-block-c"><a href="#" data-role="button" id='calendario-mensualidad-avanzar' data-iconpos="notext" data-icon="carat-r" onclick="programa.fecha.calendario.buscar('mesSiguiente');"></a></div>
+			</div>
+			<div class="ui-grid-f">
+				
+				<div class="ui-block-a calendario-semana"><div class="ui-body ui-body-d centrado" id="calendario-semana-1">Lunes</div></div>
+				<div class="ui-block-b calendario-semana"><div class="ui-body ui-body-d centrado" id="calendario-semana-2">Martes</div></div>
+				<div class="ui-block-c calendario-semana"><div class="ui-body ui-body-d centrado" id="calendario-semana-3">Miércoles</div></div>
+				<div class="ui-block-d calendario-semana"><div class="ui-body ui-body-d centrado" id="calendario-semana-4">Jueves</div></div>
+				<div class="ui-block-e calendario-semana"><div class="ui-body ui-body-d centrado" id="calendario-semana-5">Viernes</div></div>
+				<div class="ui-block-f calendario-semana"><div class="ui-body ui-body-d centrado" id="calendario-semana-6">Sábado</div></div>
+				<div class="ui-block-g calendario-semana"><div class="ui-body ui-body-d centrado domingo" id="calendario-semana-7">Domingo</div></div>
+				
+				<div class="ui-block-a"><div id="calendario-1" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-b"><div id="calendario-2" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-c"><div id="calendario-3" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-d"><div id="calendario-4" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-e"><div id="calendario-5" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-f"><div id="calendario-6" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-g"><div id="calendario-7" class="ui-body ui-body-d centrado domingo">&#160;</div></div>
+
+				<div class="ui-block-a"><div id="calendario-8" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-b"><div id="calendario-9" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-c"><div id="calendario-10" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-d"><div id="calendario-11" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-e"><div id="calendario-12" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-f"><div id="calendario-13" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-g"><div id="calendario-14" class="ui-body ui-body-d centrado domingo">&#160;</div></div>
+
+				<div class="ui-block-a"><div id="calendario-15" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-b"><div id="calendario-16" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-c"><div id="calendario-17" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-d"><div id="calendario-18" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-e"><div id="calendario-19" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-f"><div id="calendario-20" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-g"><div id="calendario-21" class="ui-body ui-body-d centrado domingo">&#160;</div></div>
+
+				<div class="ui-block-a"><div id="calendario-22" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-b"><div id="calendario-23" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-c"><div id="calendario-24" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-d"><div id="calendario-25" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-e"><div id="calendario-26" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-f"><div id="calendario-27" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-g"><div id="calendario-28" class="ui-body ui-body-d centrado domingo">&#160;</div></div>
+
+				<div class="ui-block-a"><div id="calendario-29" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-b"><div id="calendario-30" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-c"><div id="calendario-31" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-d"><div id="calendario-32" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-e"><div id="calendario-33" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-f"><div id="calendario-34" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-g"><div id="calendario-35" class="ui-body ui-body-d centrado domingo">&#160;</div></div>
+
+				<div class="ui-block-a"><div id="calendario-36" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-b"><div id="calendario-37" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-c"><div id="calendario-38" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-d"><div id="calendario-39" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-e"><div id="calendario-40" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-f"><div id="calendario-41" class="ui-body ui-body-d centrado">&#160;</div></div>
+				<div class="ui-block-g"><div id="calendario-42"  class="ui-body ui-body-d centrado">&#160;</div></div>
+			</div>
+			<div class="ui-grid-b" id="calendario-pie">
+				<div class="ui-block-a"><a href="#" data-role="button" id='calendario-refrescar' data-iconpos="notext" data-icon="recycle" onclick="programa.fecha.calendario.presentar();"></a></div>
+				<div class="ui-block-b"><input type="date" id="calendario-fecha" name="calendario-fecha" value=""></div>
+				<div class="ui-block-c"><a href="#" data-role="button" id='calendario-seleccionar' data-iconpos="notext" data-icon="calendar" onclick="programa.fecha.calendario.buscar('fechaSeleccionada');"></a></div>
+			</div>
+			<input type="hidden" id="calendario-campo-oculto" value="" />	
+		</div>	
+	</div>
+	<div data-role="footer" id="ajustes-pie" data-position="fixed" data-theme='b'><a href="../index.html" data-role="button" data-icon="back" data-iconpos="notext">&#160;</a></div>
+</div>

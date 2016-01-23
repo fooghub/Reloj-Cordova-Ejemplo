@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<!--
+Aplicación: Reloj - HTML5
+Archivo: index.html
+Autor: Francisco J. Gómez.
+2004, 2015 Foog.Software.
+Licencia : MIT License (MIT).
+-->
+<head>
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="css/index-min.css" />
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/iscroll-min.js"></script>
+	<script src="js/toast-min.js"></script>
+	<script src="js/index-min.js"></script>	
+	<!-- Apache Cordova añade automáticamente el archivo siguiente 'cordova.js', en el directorio raíz 'www' durante la construcción (build) de la aplicación -->
+	<script type="text/javascript" src="cordova.js"></script>
+	<title>Reloj</title>
+</head>
+<body>
+	<!-- Página inicial 'index' -->
+	<div id="index" data-role="page" data-theme="b">
+		<!-- Panel (menú) -->
+		<div id="opciones" data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="b">
+			<div id="opciones-cerrar" class="ui-bar-b">
+				<ul data-role="listview" data-inset="false">
+					<li><a href="#" data-role="button" id="opciones-pulsador-cerrar" data-rel="close" data-icon="delete" class="no-halo-azul">Cerrar menú</a></li>
+				</ul>
+			</div>
+			<div id="opciones-envoltura">
+				<div id="opciones-varios"> 
+					<ul data-role="listview" data-inset="false">	
+						<li><a href="#ajustes" data-role="button" data-icon="carat-l" data-transition="slide" data-direction="reverse">Ajustes</a></li>
+						<li><a href="#" data-role="button" id='opciones-captura-de-pantalla' data-icon="carat-l" onclick="programa.ventana.emergente.abrir('#captura-de-pantalla');">Captura de pantalla</a></li>
+						<li><a href="#" data-role="button" id='opciones-tictac' data-icon="carat-l" onclick="programa.ventana.desplegable.abrirDesdePanel('#ajustes-desplegable-sonido');">Sonido</a></li>
+						<li><a href="html/calendario.html" data-role="button" data-transition="slide" data-direction="reverse" id='opciones-calendario' data-icon="carat-l">Calendario</a></li>
+						<li><a href="#" data-role="button" id='opciones-actualizaciones' data-icon="carat-l" onclick="programa.ventana.desplegable.abrirDesdePanel('#ajustes-desplegable-actualizaciones');">Actualizaciones</a></li>
+						<li><a href="#" data-role="button" id='opciones-acerca-de' data-icon="carat-l" onclick="programa.ventana.desplegable.abrirDesdePanel('#ajustes-desplegable-acerca');">Acerca de ...</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="opciones-salir" class="ui-bar-b">
+				<ul data-role="listview" data-inset="false">
+					<li><a href="#" data-role="button" id='opciones-pulsador-salir' data-icon="carat-l"   onclick="programa.ventana.emergente.abrir('#salida');" class="no-halo-azul">Salir</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- Ventanas emergentes (popup) -->
+		<div data-role="popup" id="captura-de-pantalla" data-dismissible ="false" data-position-to="#index-capa-central">
+			<a href="#" data-rel="back" id="captura-de-pantalla-cerrar" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+			<div class="ui-bar-b" id="captura-de-pantalla-cabecera"><span class="ui-icon-iconoReloj ui-btn-icon-left solo-icono" id="captura-de-pantalla-texto">Captura de pantalla</span></div>
+			<div class="ui-content"><a href="#" data-role="button" data-mini="true" data-icon="camera" data-iconpos="top" onclick="programa.capturaDePantalla.preparar();">¡Clic!</a></div>
+		</div>
+		
+		<div data-role="popup" id="salida"  data-overlay-theme="b" data-dismissible="false" data-position-to="#index-capa-central">
+			<div id="salida-cabecera" class="ui-bar-b"><span id="salida-cabecera-texto">Salir de la aplicación</span></div>
+			<div class="ui-content borde-inf-azul-android">
+				<div><img src="img/reloj-bn-34.png" alt="" id="salida-imagen" onclick="programa.ventana.emergente.oscilar('#salida');"><span>Reloj&#160;</span><span id="salida-versiones">&#160;</span></div>
+			</div>		
+			<div class="ui-grid-a ui-bar-b">
+				<div class="ui-block-a"><a href="#" id="salida-cancelar" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-mini ui-btn-b no-halo-azul fuente-talla-08">NO</a></div>
+				<div class="ui-block-b"><a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-mini ui-btn-b fuente-talla-08" onclick="programa.salir();">SI</a></div>
+			</div>			
+		</div>
+		
+		<div data-role="popup" id="bienvenida" data-dismissible="true" data-position-to="#index-capa-central">
+		<a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">¡Hola!</a>
+		<h4 class="centrado">¡Hola!</h4>			
+			<div class="ui-content" id="bienvenida-contenido">
+				<p><img src="img/reloj-bn-34.png" alt="" id="bienvenida-imagen" onclick="programa.ventana.emergente.oscilar('#bienvenida');"><span>Reloj&#160;</span><span id="bienvenida-versiones">&#160;</span></p>
+				<p class="fuente-talla-xx-s centrado"><span>(&#596;)&#160;</span><span id="bienvenida-anualidad">&#160;</span><span>&#160;Foog.Software</span></p>
+			</div>		
+			<div class="ui-grid-solo">
+				<div class="ui-block-a">
+					<a href="#" data-rel="back" data-role="button" data-mini="true">Aceptar</a>
+				</div>
+			</div>			
+		</div>
+		
+		<!-- Capa central y lienzo 'canvas', contenedor del reloj --> 
+		<div id="index-capa-central">
+			<canvas id="reloj"></canvas>
+		</div>
+		<!-- Contenedor de la imagen previa, en captura de pantalla --> 
+		<div id ="imagen-reloj"></div>
+	</div><!-- /page ('index') -->
+	
+	<!-- Página 'ajustes'. -->
+	<div data-role="page" id="ajustes" data-theme="b">
+		<!-- Página 'ajustes', cabecera -->
+		<div data-role="header" data-position="fixed" id="ajustes-cabecera">
+			<a href="#" data-rel="back" id="ajustes-regresar" data-icon="iconoReloj" data-iconpos="notext"></a><h2>Ajustes&#160;&#8212;&#160;Información</h2>
+		</div><!-- /header ('ajustes') -->	
+		
+		<!-- Página 'ajustes', contenido -->
+		<div data-role="content">
+			
+			<div data-role="collapsibleset" id="ajustes-conjunto-desplegable">
+				<div data-role="collapsible" id="ajustes-desplegable-marca" data-collapsed-icon="plus"  data-expanded-icon="minus" data-inset="true">
+					<h3>Marca</h3>
+					<form id="ajustes-formulario-marca" name="ajustes-formulario-marca" action="javascript:programa.guardarCambios(document.forms[0].id)">
+						<p class="centrado"><span>Marca actual:&#160;</span><span id="ajustes-marca-actual" class="font-giorgio">&#160;</span></p>
+						<fieldset data-role="controlgroup" id="ajustes-marca-acciones" data-type="horizontal" class="centrado">
+							<input name="ajustes-marca-alternativa" id="ajustes-marca-alternativa-editar" value="editar" type="radio" disabled = "disabled">
+							<label for="ajustes-marca-alternativa-editar">Editar</label>
+							<input name="ajustes-marca-alternativa" id="ajustes-marca-alternativa-eliminar" value="eliminar" type="radio" disabled = "disabled">
+							<label for="ajustes-marca-alternativa-eliminar">Eliminar</label>        
+						</fieldset>
+						<input type="text" data-clear-btn="false" data-mini="true" data-theme="a" name="ajustes-marca-entrada-texto" id="ajustes-marca-entrada-texto" value="" placeholder="Nueva marca" maxlength="18" autocomplete="off" disabled  />
+						<input type="hidden" id="ajustes-marca-campo-oculto" value="" />
+						<h6 class="centrado" id="ajustes-marca-advertencia">&#160;</h6>
+						<div class="ui-grid-solo">
+							<div class="ui-block-a">
+								<input type="submit" id="ajustes-marca-guardar-cambios" value="Guardar cambios" disabled />
+							</div>
+						</div>
+					</form>
+				</div>
+				
+				<div data-role="collapsible" id="ajustes-desplegable-tema" data-collapsed-icon="plus"  data-expanded-icon="minus" data-inset="true">
+					<h3>Tema</h3>
+					<form id="ajustes-formulario-tema" name="ajustes-formulario-tema" action="javascript:programa.guardarCambios(document.forms[1].id)">
+						<fieldset data-role="controlgroup">
+							<legend class="leyenda"><span>Tema actual:&#160;</span><span id="ajustes-tema-actual" class="font-giorgio">&#160;</span></legend>
+							<input name="ajustes-temas" id="ajustes-tema-bn" value="bn" type="radio" checked="checked" />
+							<label for="ajustes-tema-bn"><span>BN</span><span class="fuente-talla-xx-s">&#160;&#160;BLANCO</span><span><img src="img/reloj-bn-34.png" alt="" class="ajustes-tema-imagen"></span></label>
+							<input name="ajustes-temas" id="ajustes-tema-ba" value="ba" type="radio" />
+							<label for="ajustes-tema-ba"><span>BA</span><span class="fuente-talla-xx-s">&#160;&#160;CLÁSICO</span><span><img src="img/reloj-ba-34.png" alt="" class="ajustes-tema-imagen"></span></label>
+							<input name="ajustes-temas" id="ajustes-tema-nb" value="nb" type="radio" />
+							<label for="ajustes-tema-nb"><span>NB</span><span><span class="fuente-talla-xx-s">&#160;&#160;NEGRO</span><img src="img/reloj-nb-34.png" alt="" class="ajustes-tema-imagen"></span></label>
+							<input name="ajustes-temas" id="ajustes-tema-nr" value="nr" type="radio" />
+							<label for="ajustes-tema-nr"><span>NR</span><span class="fuente-talla-xx-s">&#160;&#160;ROJO</span><span><img src="img/reloj-nr-34.png" alt="" class="ajustes-tema-imagen"></span></label>
+						</fieldset>
+						<input type="hidden" id="ajustes-tema-campo-oculto" value="bn" />
+						<div class="ui-grid-solo">
+							<div class="ui-block-a">
+								<input type="submit" id="ajustes-tema-guardar-cambios" value="Guardar Cambios" />
+							</div>
+						</div>
+					</form>
+				</div>
+				
+				<div data-role="collapsible" id="ajustes-desplegable-sonido" data-collapsed-icon="plus"  data-expanded-icon="minus" data-inset="true">
+					<h3>Sonido</h3>
+					<form id="ajustes-formulario-sonido" name="ajustes-formulario-sonido">
+						<div data-role="fieldcontain">
+							<label for="ajustes-sonido-tictac"><span class="ui-icon-audio ui-btn-icon-left solo-icono">Tictac:</span></label>
+							<select name="ajustes-sonido-tictac" id="ajustes-sonido-tictac" data-role="flipswitch">
+								<option value="off">Off</option>
+								<option value="on">On</option>
+							</select> 
+						</div>
+						<h6 id="ajustes-sonido-advertencia">Cambios no persistentes.</h6>
+					</form>
+				</div>
+				
+				<div data-role="collapsible" id="ajustes-desplegable-captura" data-collapsed-icon="plus"  data-expanded-icon="minus" data-inset="minus">
+					<h3>Captura de pantalla</h3>
+					<form id="ajustes-formulario-captura" name="ajustes-formulario-captura" action="javascript:programa.guardarCambios(document.forms[3].id)">
+						<div class="ui-grid-a">
+							<div class="ui-block-a">
+								<fieldset data-role="controlgroup">
+									<legend>Formato:</legend>
+									<input name="ajustes-captura-formato" id="ajustes-captura-formato-jpg" value="jpg" type="radio" checked="checked" />
+									<label for="ajustes-captura-formato-jpg">JPG</label>
+									<input name="ajustes-captura-formato" id="ajustes-captura-formato-png" value="png" type="radio" />
+									<label for="ajustes-captura-formato-png">PNG</label>
+								</fieldset>
+							</div>
+							<div class="ui-block-b">
+								<fieldset data-role="controlgroup">
+									<legend>Calidad:</legend>
+									<input name="ajustes-captura-calidad" id="ajustes-captura-calidad-50" value="50" type="radio" checked="checked" />
+									<label for="ajustes-captura-calidad-50">50</label>
+									<input name="ajustes-captura-calidad" id="ajustes-captura-calidad-100" value="100" type="radio" />
+									<label for="ajustes-captura-calidad-100">100</label>
+								</fieldset>
+							</div>
+						</div>
+						<h6 id="ajustes-captura-advertencia">Cambios no persistentes.</h6>
+						<div class="ui-grid-solo">
+							<div class="ui-block-a">
+								<input type="submit" id="ajustes-captura-guardar-cambios" value="Guardar Cambios" />
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<div data-role="collapsible" id="ajustes-desplegable-calendario" data-collapsed-icon="plus"  data-expanded-icon="minus" data-inset="minus">
+					<h3>Calendario</h3>
+					<p>Calendario simple, con un rango efectivo de fechas comprendido entre el uno de enero del año 1000 y el 31 de diciembre del año 9999.</p>
+					<p>Distingue los domingos en rojo. Desde el año 1979 diferencia también las fiestas nacionales actuales, con los colores rojo o verde (sustituible por la Comunidad Autónoma).</p>
+					<div class="ui-grid-solo">
+						<div class="ui-block-a">
+							<a href="html/calendario.html" id="ajustes-calendario-hoy" data-role="button" data-transition="slide" data-direction="reverse" data-icon="calendar" data-mini="true" data-iconpos="right">&#160;</a>
+						</div>
+					</div>
+				</div>
+				
+				<div data-role="collapsible" id="ajustes-desplegable-actualizaciones" data-collapsed-icon="plus"  data-expanded-icon="minus" data-inset="true">
+					<h3>Actualizaciones</h3>
+					<form id="ajustes-formulario-actualizaciones" name="ajustes-formulario-actualizaciones" action="javascript:programa.guardarCambios(document.forms[4].id)">
+						<p id="ajustes-actualizaciones">&#160;</p>
+						<div id="ajustes-actualizaciones-tarea">&#160;</div>
+						<div id="ajustes-actualizaciones-barra"><input type="range" name="ajustes-actualizaciones-barra-progreso" id="ajustes-actualizaciones-barra-progreso" value="0" min="0" max="100" data-highlight="true" data-mini="true" /></div>
+						<div id="ajustes-actualizaciones-porcentaje"><span id="ajustes-actualizaciones-porcentaje-cifra">0</span><span>%</span></div>
+						<div id="ajustes-actualizaciones-noticia">&#160;</div>
+						<div id="ajustes-actualizaciones-noticia1">&#160;</div>
+						<div id="ajustes-actualizaciones-error">&#160;</div>
+						<div data-role="navbar" id="ajustes-actualizaciones-botones">
+						<ul>
+							<li><input type="button" id="ajustes-actualizaciones-cancelar" value="Cancelar" /></li>
+							<li><input type="submit" id="ajustes-actualizaciones-guardar-cambios" value="Comprobar" /></li>
+						</ul>
+						</div>
+					</form>
+				</div>
+				
+				<div data-role="collapsible" id="ajustes-desplegable-dispositivo" data-collapsed-icon="plus"  data-expanded-icon="minus" data-inset="true"  >
+					<h3>Dispositivo</h3>
+					<form id="ajustes-formulario-dispositivo" name="ajustes-formulario-dispositivo">
+						<table data-role="table" class="ui-responsive">
+							<thead>
+								<tr>
+									<th>Tipo:</th>
+									<th>Modelo:</th>
+									<th>Sistema:</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div id="ajustes-dispositivo-tipo">&#160;</div>
+										<div><span>Conexión: </span><span id="ajustes-dispositivo-red">&#160;</span></div>
+									</td>
+									<td>
+										<div id="ajustes-dispositivo-modelo">&#160;</div>
+									</td>
+									<td>
+										<div id="ajustes-dispositivo-sistema">&#160;</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table data-role="table">
+							<thead><tr><th>Pantalla:</th></tr></thead>
+							<tbody>
+								<tr>
+									<td>
+										<div><span>Tamaño: </span><span id="ajustes-dispositivo-pantalla">&#160;</span></div>
+										<div><span>Píxel ratio: </span><span id="ajustes-dispositivo-pantalla-pr">&#160;</span></div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table data-role="table">
+							<thead><tr><th>Batería:</th></tr></thead>
+							<tbody>
+								<tr>
+									<td>
+										<div><span id="ajustes-dispositivo-acumulador-nivel">&#160;</span><span>% disponible</span></div>
+										<div id="ajustes-dispositivo-acumulador-conectado" class="fuente-talla-s">&#160;</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>		
+						<table data-role="table">
+							<thead><tr><th>UUID:</th></tr></thead>
+							<tbody>
+								<tr>
+								<td>
+									<div id="ajustes-dispositivo-uuid">&#160;</div>
+								</td>
+								</tr>
+							</tbody>
+						</table>	
+					</form>
+				</div>
+
+				<div data-role="collapsible" id="ajustes-desplegable-acerca" data-collapsed-icon="plus"  data-expanded-icon="minus" data-inset="true"  >
+					<h3>Aplicación</h3>
+					<form id="ajustes-formulario-acerca" name="ajustes-formulario-acerca">
+						<p><span>Reloj calendario </span><span id="ajustes-programa-versiones-corta">&#160;</span><span> es una aplicación de código abierto para dispositivos móviles. Programada con HTML 5 , CSS3, Javascript (jQuery - jQuery Mobile)</span><span>&#160;</span><span id="ajustes-programa-versiones-cordova">&#160;</span></p>
+						<hr class="separador" />
+						<table data-role="table" class="ui-responsive">
+							<thead>
+								<tr>
+									<th>Aplicación:</th>
+									<th>Versión:</th>
+									<th>Edición:</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div id="ajustes-programa-nombre">&#160;</div>
+										<div id="ajustes-programa-paquete">&#160;</div>
+										<div id="ajustes-programa-serie">&#160;</div>
+									</td>
+									<td>
+										<div><span id="ajustes-programa-versiones-larga">&#160;</span><span id="ajustes-programa-versiones-tipo">&#160;</span></div>
+										<div id="ajustes-programa-versiones-guarismo">&#160;</div>
+									</td>
+									<td>
+										<div id="ajustes-programa-versiones-tirada">&#160;</div>
+										<div id="ajustes-dispositivo-plataforma">&#160;</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<hr class="separador" />
+						<div id="ajustes-github"><a href="#" data-role="button" id="ajustes-github-enlace" data-mini="true" data-inline="true" data-icon="github-b" onclick="programa.navegar.url(this.id);">Código fuente en Github</a></div>
+						<div id="ajustes-licencia"><a href="html/licencia.html" data-role="button" id="ajustes-licencia-enlace" data-mini="true" data-inline="true">Licencia MIT</a></div>
+						<h6 id="ajustes-autor">Francisco J. Gómez</h6>
+						<h6 id="ajustes-web"><a href="#" data-role="button" id='ajustes-web-enlace' data-mini="true" data-inline="true" onclick="programa.navegar.url(this.id);">www.foog.es</a></h6>
+						<h6 id="ajustes-copyright"><span>(&#596;)&#160;2004&#160;-&#160;</span><span id="ajustes-copyright-anualidad-corriente">&#160;</span><span>&#160;Foog.Software</span></h6>
+					</form>
+				</div>
+			</div>
+			
+		</div><!-- /content ('ajustes') -->	
+		
+		<!-- Página 'ajustes', pie -->
+		<div data-role="footer" id="ajustes-pie" data-position="fixed" data-theme='b'>
+			<a href="#" data-role="button" data-rel="back" data-icon="back" data-iconpos="notext">&#160;</a>  
+		</div><!-- /footer ('ajustes') -->
+		
+	</div><!-- /page ('ajustes') -->		
+</body>
+</html>

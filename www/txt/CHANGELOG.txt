@@ -1,0 +1,11 @@
+Reloj calendario 1.0.5 - Release to Web. (estable en Android).
+--------------
+Reloj calendario 1.0.4 - Release Candidate.
+--------------
+Reloj calendario 1.0.2 - Release Candidate. // Para pruebas de actualizaciones. 
+--------------
+Reloj calendario 1.0.1 - Release Candidate. // Con parche "menubutton" (añadido en versiones 1.x.x).
+--------------
+Reloj calendario 0.1.2 - Beta. Para pruebas de actualizaciones.
+--------------
+Reloj calendario 0.1.1 - Beta. Lanzamiento inicial.

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="es.foog.cordova.reloj" version="0.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Reloj</name>
+    <description>
+        Reloj calendario 0.1.1 - Beta. Un programa de ejemplo con Apache Cordova.
+    </description>
+    <author email="foog@foog.es" href="http://www.foog.es">
+        foog.Software
+    </author>
+    <content src="index.html" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <plugin name="cordova-plugin-whitelist" version="1" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <icon src="www/res/icon/android/icon.png" />
+        <icon density="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
+        <icon density="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
+        <icon density="hdpi" src="www/res/icon/android/icon-72-hdpi.png" />
+        <icon density="xhdpi" src="www/res/icon/android/icon-96-xhdpi.png" />
+        <splash density="land-ldpi" src="www/res/screen/android/screen-320x200-ldpi-landscape.png" />
+        <splash density="land-mdpi" src="www/res/screen/android/screen-480x320-mdpi-landscape.png" />
+        <splash density="land-hdpi" src="www/res/screen/android/screen-800x480-hdpi-landscape.png" />
+        <splash density="land-xhdpi" src="www/res/screen/android/screen-1280x720-xhdpi-landscape.png" />
+        <splash density="port-ldpi" src="www/res/screen/android/screen-200x320-ldpi-portrait.png" />
+        <splash density="port-mdpi" src="www/res/screen/android/screen-320x480-mdpi-portrait.png" />
+        <splash density="port-hdpi" src="www/res/screen/android/screen-480x800-hdpi-portrait.png" />
+        <splash density="port-xhdpi" src="www/res/screen/android/screen-720x1280-xhdpi-portrait.png" />
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <access origin="*" />
+	
+</widget>
