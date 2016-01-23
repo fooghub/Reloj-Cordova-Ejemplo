@@ -41,7 +41,7 @@ Esta es una aplicación experimental fuera de los circuitos de distribución com
 
 ##### IMÁGENES
 
-El directorio wwww/**res/*** contiene las imágenes: **logo** de la aplicación y **pantallas** de bienvenida. En formato **.png** y el tamaño adecuado para cada posición y tipo de dispositivo con **Android**.
+El directorio wwww/**res/** contiene las imágenes: **logo** de la aplicación y **pantallas** de bienvenida. En formato **.png** y el tamaño adecuado para cada posición y tipo de dispositivo con **Android**.
 
 La asociación de estas imágenes con la instalación y lanzamiento de la aplicación se consigue mediante el código de **config.xml**
 
