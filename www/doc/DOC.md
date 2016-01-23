@@ -318,7 +318,7 @@ La asociación de estas imágenes con la instalación y lanzamiento de la aplica
 
 	Debe decir:
 
-	"*Finally in CordovaLib/src/org/apache/cordova/**CordovaWebImpl.java** line 357 (setButtonPlumbedToJs) add a case statement after the KEYCODE_MENU entry like this:*"	
+	"*Finally in CordovaLib/src/org/apache/cordova/__CordovaWebImpl.java__ line 357 (setButtonPlumbedToJs) add a case statement after the KEYCODE_MENU entry like this:*"	
 	
 	**Nota:* Este *parche* se ha añadido a las versiones 1.0.x de la aplicación.
 
