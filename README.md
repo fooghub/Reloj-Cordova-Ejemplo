@@ -1,4 +1,9 @@
- ## Reloj-Cordova-Ejemplo" 
+ ###Reloj-Cordova-Ejemplo
+ 
+ ***
+ 
+ ![Reloj](https://github.com/fooghub/Reloj-Cordova-Ejemplo/blob/master/www/doc/img/logo.png "Reloj")
+
 
 **Reloj calendario**, es una aplicación de código abierto para dispositivos móviles. Programada con **HTML 5** , **CSS3**, **Javascript** (jQuery - jQuery Mobile) y el marco de desarrollo multiplataforma **Apache CORDOVA**&#8482;.
 
@@ -89,7 +94,7 @@ Los recursos que presenta esta aplicación están orientados y optimizados para 
 
 Para más y mejor información sobre el contenido de este proyecto, puedes leer el documento:
 
->Enlace a documento (Repositorio en obras. Disculpa las molestias).
+[www/doc/**DOC.md**](https://github.com/fooghub/Reloj-Cordova-Ejemplo/blob/master/www/doc/DOC.md)
 
 En el que además se detalla el procedimiento completo para construir una aplicación *móvil* con CORDOVA, basado en el código disponible en este repositorio.
 
