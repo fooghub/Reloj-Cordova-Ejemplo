@@ -314,7 +314,7 @@ La asociación de estas imágenes con la instalación y lanzamiento de la aplica
 	
 	Donde dice:
 	
-	"*Finally in CordovaLib/src/org/apache/cordova/**CoreAndroid.java** line 357 (setButtonPlumbedToJs) add a case statement after the KEYCODE_MENU entry like this:*"
+	"*Finally in CordovaLib/src/org/apache/cordova/__CoreAndroid.java__ line 357 (setButtonPlumbedToJs) add a case statement after the KEYCODE_MENU entry like this:*"
 
 	Debe decir:
 
