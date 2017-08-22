@@ -102,9 +102,11 @@ Saludos.
 
 -------------
 
-2004 - 2016 - Foog.Software
+2004 - 2017 - Foog.Software
 
-[www.foog.es](http://www.foog.es)
+[fooghub](http://fooghub.github.io/ "fooghub.github.io")
+
+[www.foog.es](http://www.foog.es "www.foog.es")
 
 
   
