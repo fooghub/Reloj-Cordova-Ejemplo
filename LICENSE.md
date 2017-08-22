@@ -1,8 +1,8 @@
-###MIT License (MIT)
+### MIT License (MIT)
 
 ----
 
-####Copyright (c) 2004 - 2016 Foog.Software
+#### Copyright (c) 2004 - 2017 Foog.Software
 		
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
